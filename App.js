@@ -1,26 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ImageBackground, Button} from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, TouchableOpacity} from 'react-native';
 import { useState } from 'react';
 
 export default function App() {
   const [contador, setContador ] = useState(0);
-  // const mostrarAlerta = () => {
-  //   Alert.alert("¡Hola!", "Esta es una alerta simple");
-  // };
-
-  // let alert = ()=>{
-  //    mostrarAlerta()
-  //   setContador(contador + 1)
-  
-    
-    
-  // }
+ const [estilo, setEstilo] = useState([]); 
   return (
+   
         <ImageBackground
       source={{ uri: 'https://resizer.glanacion.com/resizer/v2/argentina-programa-40-apunta-a-capacitar-gratis-a-VNBE2HBY2FEDFNDMGW3EJ725UU.jpg?auth=702d69c5647bfc34113e87c41615d701e3821e26dbc41d5fe875fd8e13ab67da&width=1280&height=854&quality=70&smart=true' }} style={styles.background} resizeMode="cover" >
       <View style={styles.container}>
       <Text style={styles.text}>CONTADOR</Text>
-      <Button title='INCREMENTAR' onPress={() => setContador(contador + 1)}></Button>
+          <TouchableOpacity  
+onPress={() => setEstilo(!estilo)}  
+style={{ backgroundColor: estilo ? 'green' : 'red' }}> 
+<Text>Cambiar color</Text> 
+</TouchableOpacity> 
       <Text>{contador}</Text>
 
       <StatusBar style="auto" />
